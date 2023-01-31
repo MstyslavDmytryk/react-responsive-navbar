@@ -1,6 +1,12 @@
 import React from "react";
+import Menu from "./Menu/Menu";
 
 export const App = () => {
+  const items = [
+    { valuee: "Main", href: "/main", icon: "main" },
+    { valuee: "Store", href: "/store", icon: "store" },
+    { valuee: "About", href: "/about", icon: "about" },
+  ];
   return (
     <div className="app">
       <nav>
@@ -115,6 +121,7 @@ export const App = () => {
           unde quod excepturi ut.
         </p>
       </main>
+      <Menu header={"Burger Menu"} items={items} />
     </div>
   );
 };
