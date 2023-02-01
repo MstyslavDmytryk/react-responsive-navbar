@@ -1,16 +1,18 @@
 import React from "react";
 import Menu from "./Menu/Menu";
+import { useState } from "react";
 
 export const App = () => {
+  const [menuActive, setMenuActive] = useState(false);
   const items = [
-    { valuee: "Main", href: "/main", icon: "main" },
-    { valuee: "Store", href: "/store", icon: "store" },
-    { valuee: "About", href: "/about", icon: "about" },
+    { value: "Main", href: "/main", icon: "fa-solid fa-house" },
+    { value: "Store", href: "/store", icon: "fa-solid fa-store" },
+    { value: "About", href: "/about", icon: "fa-solid fa-address-card" },
   ];
   return (
     <div className="app">
       <nav>
-        <div className="burger-btn">
+        <div className="burger-btn" onClick={() => setMenuActive(!menuActive)}>
           <span />
         </div>
       </nav>
@@ -121,7 +123,12 @@ export const App = () => {
           unde quod excepturi ut.
         </p>
       </main>
-      <Menu header={"Burger Menu"} items={items} />
+      <Menu
+        active={menuActive}
+        setActive={setMenuActive}
+        header={"BURGER MENU"}
+        items={items}
+      />
     </div>
   );
 };

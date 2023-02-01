@@ -1,18 +1,20 @@
 import React from "react";
 import "./Menu.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Menu = ({ header, items }) => {
+const Menu = ({ header, items, active, setActive }) => {
   return (
-    <div className="menu">
+    <div
+      className={active ? "menu active" : "menu"}
+      onClick={() => setActive(false)}
+    >
       <div className="blur" />
-      <div className="menu__content">
+      <div className="menu__content" onClick={(e) => e.stopPropagation()}>
         <div className="menu__header">{header}</div>
         <ul>
           {items.map((item) => (
             <li>
+              <i className={`icon ${item.icon}`}></i>
               <a href={item.href}>{item.value}</a>
-              <FontAwesomeIcon icon="fa-brands fa-youtube" />
             </li>
           ))}
         </ul>
